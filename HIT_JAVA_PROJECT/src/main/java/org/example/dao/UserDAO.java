@@ -37,7 +37,7 @@ public class UserDAO {
     }
 
     public boolean register(User user) {
-        String sql = "INSERT INTO users(fullName, username, password, email, role) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users(fullName, username, password, email) VALUES (?, ?, ?, ?)";
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, user.getFullName());
@@ -45,7 +45,6 @@ public class UserDAO {
             String hashedPassword = PasswordUtil.hashPassword(user.getPassword());
             ps.setString(3, hashedPassword);
             ps.setString(4, user.getEmail());
-            ps.setString(5, user.getRole());
             return ps.executeUpdate() > 0;
         } catch(SQLException e) {
             e.printStackTrace();
@@ -59,6 +58,27 @@ public class UserDAO {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new User(
+                        rs.getInt("id"),
+                        rs.getString("fullName"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("email"),
+                        rs.getString("role")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }public User getUserByEmail(String email) {
+        User user = null;
+        String sql = "SELECT id, fullName, username, password, email, role FROM users WHERE email = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new User(
