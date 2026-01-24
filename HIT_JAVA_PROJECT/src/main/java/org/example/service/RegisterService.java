@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class RegisterService {
     private UserDAO userDAO = new UserDAO();
-    public boolean registerService(User user) throws Exception {
+    public void registerService(User user) throws Exception {
         if(user == null)
             throw new Exception(ErrorMessage.OBJECT_USER_IS_NULL);
         if(userDAO.getUserByUsername(user.getUsername()) != null)
@@ -19,9 +19,8 @@ public class RegisterService {
         if(userDAO.getUserByEmail(user.getEmail()) != null)
             throw new IllegalArgumentException(ErrorMessage.EMAIL_IS_EXIST);
         boolean success = userDAO.register(user);
-        if (!success) {
+        if(!success) {
             throw new Exception(ErrorMessage.REGISTER_FAILED);
         }
-        return true;
     }
 }
