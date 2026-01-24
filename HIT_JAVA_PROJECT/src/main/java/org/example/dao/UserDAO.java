@@ -1,5 +1,6 @@
 package org.example.dao;
 
+import org.example.model.Role;
 import org.example.model.User;
 import org.example.utils.DBConnection;
 import org.example.utils.PasswordUtil;
@@ -10,12 +11,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UserDAO {
-    public User login(String username, String password, String role) {
+    public User login(String username, String password, Role role) {
         String sql = "SELECT id, fullName, username, password, email, role FROM users WHERE username = ? AND role = ?";
         try(Connection con = DBConnection.getConnection();
             PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, username);
-            ps.setString(2, role);
+            ps.setString(2, role.name());
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 String hashedPassword = rs.getString("password");
