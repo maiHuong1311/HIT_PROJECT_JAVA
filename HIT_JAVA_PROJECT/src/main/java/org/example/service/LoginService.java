@@ -9,11 +9,10 @@ import org.example.model.User;
 public class LoginService {
     private UserDAO userDAO = new UserDAO();
     public static User currentUser;
-    public boolean loginService(String username, String password, Role role) {
+    public void loginService(String username, String password, Role role) throws Exception {
         User user = userDAO.login(username, password, role);
         if(user == null)
-            throw new IllegalArgumentException(ErrorMessage.LOGIN_FAILED);
+            throw new Exception(ErrorMessage.LOGIN_FAILED);
         currentUser = user;
-        return true;
     }
 }
