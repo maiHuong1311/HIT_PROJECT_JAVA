@@ -11,8 +11,9 @@ public class ErrorMessage {
     public static final String INVALID_PASSWORD = "Mật khẩu yếu";
     public static final String USERNAME_IS_EXIST = "Username đã tồn tại";
     public static final String LOGIN_FAILED = "Sai username hoặc mật khẩu";
-    public static final String REGISTER_FAILED = "Đăng ký không thành công";
+    public static final String REGISTER_FAILED = "Đăng ký không thành công, thử lại sau";
     public static final String INCORRECT_CONFIRM_PASSWORD = "Mật khẩu xác nhận không đúng";
     public static final String OBJECT_USER_IS_NULL = "Đối tượng người dùng rỗng";
     public static final String EMAIL_IS_EXIST = "Email đã tồn tại";
+    public static final String CHANGE_SCENE_FAILED = "Đăng ký thành công nhưng chuyển trang lỗi";
 }
