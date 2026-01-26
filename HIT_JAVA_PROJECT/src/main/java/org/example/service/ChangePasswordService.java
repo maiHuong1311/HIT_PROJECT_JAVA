@@ -42,9 +42,6 @@ public class ChangePasswordService {
 
     public boolean resetPassword(int userId, String otpInput, String newPassword) throws Exception {
         this.verify(userId, otpInput);
-        if (newPassword == null) {
-            throw new Exception(Common.NOT_NULL_PASSWORD);
-        }
         if (!PasswordUtil.checkRegex(newPassword)) {
             throw new Exception(ErrorMessage.INVALID_PASSWORD);
         }
