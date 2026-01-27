@@ -1,26 +1,24 @@
 package org.example.service;
 
-import org.example.constant.Common;
 import org.example.constant.ErrorMessage;
 import org.example.dao.UserDAO;
+import org.example.exception.DuplicateEntityException;
+import org.example.exception.EntityNotFoundException;
+import org.example.exception.AuthenticationException;
 import org.example.model.User;
-import org.example.utils.EmailUtil;
-import org.example.utils.PasswordUtil;
-
-import java.util.regex.Pattern;
 
 public class RegisterService {
     private UserDAO userDAO = new UserDAO();
-    public void registerService(User user) throws Exception {
+    public void registerService(User user) {
         if(user == null)
-            throw new Exception(ErrorMessage.OBJECT_USER_IS_NULL);
+            throw new EntityNotFoundException(ErrorMessage.SYSTEM_ERROR);
         if(userDAO.getUserByUsername(user.getUsername()) != null)
-            throw new IllegalArgumentException(ErrorMessage.USERNAME_IS_EXIST);
+            throw new DuplicateEntityException(ErrorMessage.USERNAME_IS_EXIST);
         if(userDAO.getUserByEmail(user.getEmail()) != null)
-            throw new IllegalArgumentException(ErrorMessage.EMAIL_IS_EXIST);
+            throw new DuplicateEntityException(ErrorMessage.EMAIL_IS_EXIST);
         boolean success = userDAO.register(user);
         if(!success) {
-            throw new Exception(ErrorMessage.REGISTER_FAILED);
+            throw new AuthenticationException(ErrorMessage.REGISTER_FAILED);
         }
     }
 }
