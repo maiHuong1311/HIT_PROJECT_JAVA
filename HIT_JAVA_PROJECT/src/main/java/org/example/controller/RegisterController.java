@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 import org.example.constant.Common;
 import org.example.constant.ErrorMessage;
 import org.example.constant.SuccessfulMessage;
+import org.example.exception.AuthenticationException;
+import org.example.exception.DuplicateEntityException;
+import org.example.exception.EmailServiceException;
+import org.example.exception.EntityNotFoundException;
 import org.example.model.User;
 import org.example.service.RegisterService;
 import org.example.utils.EmailUtil;
@@ -45,17 +49,20 @@ public class RegisterController {
         String email = emailTextField.getText().trim();
         if(validateInput(fullName, username, password, confirmPassword, email)) {
             try {
-                register.registerService(new User(fullName, username, password, email));
-                SceneUtil.showSuccessfulMessage(Common.SUCCESS_TITLE, Common.SUCCESS_HEADER, SuccessfulMessage.REGISTER_SUCCESSFULLY);
-                SceneUtil.changeScene(event, "/view/login.fxml", "Đăng nhập");
-            } catch (IllegalArgumentException e) {
-                if (e.getMessage().equals(ErrorMessage.EMAIL_IS_EXIST))
+                boolean success = register.registerService(new User(fullName, username, password, email));
+                if(success) {
+                    SceneUtil.showSuccessfulMessage(Common.SUCCESS_TITLE, Common.SUCCESS_HEADER, SuccessfulMessage.REGISTER_SUCCESSFULLY);
+                    SceneUtil.changeScene(event, "/view/login.fxml", "Đăng nhập");
+                }
+                else
+                    SceneUtil.showErrorAlert(Common.ERROR_TITLE, Common.ERROR_HEADER, ErrorMessage.REGISTER_FAILED);
+            } catch (DuplicateEntityException e) {
+                if(e.getMessage().equals(ErrorMessage.EMAIL_IS_EXIST))
                     lblErrorEmail.setText(e.getMessage());
                 else
                     lblErrorUsername.setText(e.getMessage());
-            } catch (Exception e) {
+            } catch (EntityNotFoundException e) {
                 lblErrorMessage.setText(e.getMessage());
-                e.printStackTrace();
             }
         }
     }
