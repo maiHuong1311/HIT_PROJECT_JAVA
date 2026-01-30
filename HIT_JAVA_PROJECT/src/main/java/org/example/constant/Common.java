@@ -8,9 +8,9 @@ public class Common {
     public static final String NOT_NULL_PASSWORD = "Mật khẩu không được để trống";
     public static final String NOT_NULL_EMAIL = "Email không được để trống";
     public static final String NOT_NULL_ROLE = "Hãy chọn loại tài khoản";
-    public static final String ERROR_TITLE = "Lỗi không xác định";
+    public static final String ERROR_TITLE = "Lỗi";
     public static final String ERROR_HEADER = "Đã xảy ra sự cố";
     public static final String SUCCESS_TITLE = "Thành công";
-    public static final String SUCCESS_HEADER = "Đăng ký thành công";
+    public static final String SUCCESS_HEADER = "Chúc mừng";
     public static final String NOT_NULL_OTP = "Mã OTP không được để trống";
 }
