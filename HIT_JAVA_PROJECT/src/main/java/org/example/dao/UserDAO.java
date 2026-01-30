@@ -55,7 +55,7 @@ public class UserDAO {
 
     public User getUserByUsername(String username) {
         User user = null;
-        String sql = "SELECT id, fullName, username, password, email, role FROM users WHERE username = ?";
+        String sql = "SELECT id, fullName, username, password, email, role FROM users WHERE BINARY username = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, username);
