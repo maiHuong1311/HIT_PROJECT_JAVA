@@ -4,10 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.example.constant.Common;
 import org.example.constant.ErrorMessage;
 import org.example.constant.SuccessfulMessage;
+import org.example.exception.AuthenticationException;
 import org.example.model.Role;
 import org.example.service.LoginService;
 import org.example.utils.EmailUtil;
@@ -25,24 +27,45 @@ public class LoginController {
     @FXML private Label lblErrorMessage;
     @FXML private Hyperlink registerHyperlink;
     @FXML private Hyperlink forgotPasswordHyperlink;
+    @FXML private TextField passwordTextField;
+    @FXML private ImageView showPasswordImg;
+    @FXML private ImageView hidePasswordImg;
     private LoginService loginService = new LoginService();
 
     @FXML public void initialize() {
         roleComboBox.setItems(FXCollections.observableArrayList(Role.values()));
+        passwordTextField.setVisible(false);
+        showPasswordImg.setVisible(false);
     }
 
     @FXML public void handleLogin(ActionEvent event) {
         clearAllErrorLabels();
-        String username = usernameTextField.getText();
-        String password = passwordField.getText();
+        String username = usernameTextField.getText().trim();
+        String password = passwordField.getText().trim();
         Role selectedRole = roleComboBox.getValue();
         if (validateInput(username, password, selectedRole)) {
             try {
                 loginService.loginService(username, password, selectedRole);
 
-            } catch (Exception e) {
+            } catch (AuthenticationException e) {
                 lblErrorMessage.setText(e.getMessage());
             }
+        }
+    }
+
+    @FXML public void showPassword(ActionEvent event) {
+        if(!passwordTextField.isVisible()) {
+            passwordTextField.setText(passwordField.getText());
+            passwordTextField.setVisible(true);
+            showPasswordImg.setVisible(true);
+            passwordField.setVisible(false);
+            hidePasswordImg.setVisible(false);
+        }
+        else {
+            passwordTextField.setVisible(false);
+            showPasswordImg.setVisible(false);
+            passwordField.setVisible(true);
+            hidePasswordImg.setVisible(true);
         }
     }
 
@@ -50,7 +73,7 @@ public class LoginController {
         SceneUtil.changeScene(event, "/view/register.fxml", "Đăng ký tài khoản");
     }
 
-    @FXML public void handleForgotPassword(ActionEvent event) {
+    @FXML public void handleSwitchToForgotPassword(ActionEvent event) {
         SceneUtil.changeScene(event, "/view/forgetPassword.fxml", "Khôi phục mật khẩu");
     }
 
