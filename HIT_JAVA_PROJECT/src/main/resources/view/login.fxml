@@ -91,17 +91,11 @@
             </Label>
             <TextField fx:id="passwordTextField" layoutX="26.0" layoutY="250.0" prefHeight="43.0" prefWidth="193.0" style="-fx-background-color: white;" />
             <PasswordField fx:id="passwordField" layoutX="25.0" layoutY="250.0" prefHeight="43.0" prefWidth="195.0" style="-fx-background-color: white;" />
-            <Button fx:id="showPasswordButton" layoutX="228.0" layoutY="259.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #e6af55;" />
-            <ImageView fx:id="showPasswordImg" fitHeight="26.0" fitWidth="25.0" layoutX="217.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/showPassword.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="hidePasswordImg" fitHeight="30.0" fitWidth="28.0" layoutX="215.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/hidePassword.png" />
-               </image>
-            </ImageView>
+            <Button fx:id="showPasswordButton" layoutX="226.0" layoutY="259.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="18.0" prefWidth="19.0" style="-fx-background-color: #e6af55;">
+               <graphic>
+                  <ImageView fx:id="eyeIcon" fitHeight="18.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </center>
