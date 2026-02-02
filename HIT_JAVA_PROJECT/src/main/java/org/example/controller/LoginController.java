@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.example.constant.Common;
@@ -28,14 +29,15 @@ public class LoginController {
     @FXML private Hyperlink registerHyperlink;
     @FXML private Hyperlink forgotPasswordHyperlink;
     @FXML private TextField passwordTextField;
-    @FXML private ImageView showPasswordImg;
-    @FXML private ImageView hidePasswordImg;
+    @FXML private ImageView eyeIcon;
     private LoginService loginService = new LoginService();
+    private Image imgShow = new Image(getClass().getResourceAsStream("/image/showPassword.png"));
+    private Image imgHide = new Image(getClass().getResourceAsStream("/image/hidePassword.png"));
 
     @FXML public void initialize() {
         roleComboBox.setItems(FXCollections.observableArrayList(Role.values()));
         passwordTextField.setVisible(false);
-        showPasswordImg.setVisible(false);
+        eyeIcon.setImage(imgHide);
     }
 
     @FXML public void handleLogin(ActionEvent event) {
@@ -57,15 +59,13 @@ public class LoginController {
         if(!passwordTextField.isVisible()) {
             passwordTextField.setText(passwordField.getText());
             passwordTextField.setVisible(true);
-            showPasswordImg.setVisible(true);
             passwordField.setVisible(false);
-            hidePasswordImg.setVisible(false);
+            eyeIcon.setImage(imgShow);
         }
         else {
             passwordTextField.setVisible(false);
-            showPasswordImg.setVisible(false);
             passwordField.setVisible(true);
-            hidePasswordImg.setVisible(true);
+            eyeIcon.setImage(imgHide);
         }
     }
 
