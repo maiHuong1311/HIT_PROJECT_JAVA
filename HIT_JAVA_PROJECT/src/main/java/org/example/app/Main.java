@@ -10,14 +10,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/register.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
         Parent root = loader.load();
-        primaryStage.setTitle("Hệ thống Đăng ký");
-
-        Scene scene = new Scene(root, 520, 480);
-
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Đăng nhập");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
+        primaryStage.sizeToScene();
+        primaryStage.centerOnScreen();
         primaryStage.show();
     }
 
