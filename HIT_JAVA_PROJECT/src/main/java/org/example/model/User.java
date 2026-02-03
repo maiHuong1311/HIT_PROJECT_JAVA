@@ -9,13 +9,6 @@ public class User {
     private String role;
 
     public User() {}
-    public User(String fullName, String username, String password, String email) {
-        this.fullName = fullName;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = role;
-    }
     public User(int id, String fullName, String username, String password, String email, String role) {
         this.id = id;
         this.fullName = fullName;

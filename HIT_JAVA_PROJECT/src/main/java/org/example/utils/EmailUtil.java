@@ -3,8 +3,6 @@ package org.example.utils;
 import jakarta.mail.Message;
 
 import java.util.Properties;
-import java.util.regex.Pattern;
-
 import jakarta.mail.Authenticator;
 import jakarta.mail.PasswordAuthentication;
 import jakarta.mail.Session;
@@ -13,7 +11,6 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.Transport;
 
 public class EmailUtil {
-    private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@gmail\\.com$";
     public static boolean sendEmail(String to, String subject, String content) {
         final String from = "maihunw@gmail.com";
         final String password = "ifmtxelqqcekimxk";
@@ -41,9 +38,5 @@ public class EmailUtil {
             e.printStackTrace();
             return false;
         }
-    }
-
-    public static boolean checkRegex(String email) {
-        return Pattern.compile(EMAIL_PATTERN).matcher(email).matches();
     }
 }
