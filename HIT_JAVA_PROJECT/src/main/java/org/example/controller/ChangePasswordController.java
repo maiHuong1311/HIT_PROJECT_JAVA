@@ -27,6 +27,7 @@ public class ChangePasswordController {
     @FXML private Label lblErrorOTP;
     @FXML private Label lblErrorNewPassword;
     @FXML private Label lblErrorConfirmPassword;
+    @FXML private Label lblSuccessfulMessage;
     @FXML private Button confirmButton;
     @FXML private Button returnButton;
     @FXML private Button sendingCodeButton;
@@ -47,6 +48,7 @@ public class ChangePasswordController {
         else {
             try {
                 userId = changePasswordService.sendToEmail(username);
+                lblSuccessfulMessage.setText(SuccessfulMessage.SEND_OTP_SUCCESSFULLY);
             } catch(EntityNotFoundException e) {
                 lblErrorUsername.setText(e.getMessage());
             } catch(EmailServiceException e) {
