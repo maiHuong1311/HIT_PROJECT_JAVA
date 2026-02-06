@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,13 +8,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import org.example.constant.Common;
 import org.example.constant.ErrorMessage;
 import org.example.constant.SuccessfulMessage;
 import org.example.exception.EmailServiceException;
 import org.example.exception.EntityNotFoundException;
 import org.example.exception.InvalidOtpException;
-import org.example.model.User;
 import org.example.service.ChangePasswordService;
 import org.example.utils.PasswordUtil;
 import org.example.utils.SceneUtil;
@@ -29,7 +30,7 @@ public class ChangePasswordController {
     @FXML private Label lblErrorConfirmPassword;
     @FXML private Label lblSuccessfulMessage;
     @FXML private Button confirmButton;
-    @FXML private Button returnButton;
+    @FXML private Button backButton;
     @FXML private Button sendingCodeButton;
     @FXML private Button switchPasswordButton;
     @FXML private VBox vBoxPassword;
@@ -49,6 +50,7 @@ public class ChangePasswordController {
             try {
                 userId = changePasswordService.sendToEmail(username);
                 lblSuccessfulMessage.setText(SuccessfulMessage.SEND_OTP_SUCCESSFULLY);
+                hideSendingCodeButton();
             } catch(EntityNotFoundException e) {
                 lblErrorUsername.setText(e.getMessage());
             } catch(EmailServiceException e) {
@@ -57,6 +59,7 @@ public class ChangePasswordController {
         }
     }
 
+    @FXML
     public void handleVerifyOtp(ActionEvent event) {
         clearAllErrorLabels();
         String otpCode = OTPTextField.getText().trim();
@@ -66,15 +69,21 @@ public class ChangePasswordController {
             try {
                 changePasswordService.verify(userId, otpCode);
                 showPasswordFields();
+                lblSuccessfulMessage.setText("");
                 OTPTextField.setEditable(false);
                 usernameTextField.setEditable(false);
                 sendingCodeButton.setDisable(true);
+                backButton.setVisible(false);
             } catch(EntityNotFoundException e) {
                 lblErrorUsername.setText(e.getMessage());
             } catch(InvalidOtpException e) {
                 lblErrorOTP.setText(e.getMessage());
             }
         }
+    }
+
+    @FXML void backToLogin(ActionEvent event) {
+        SceneUtil.changeScene(event, "/view/login.fxml", "Đăng nhập");
     }
 
     @FXML
@@ -92,7 +101,7 @@ public class ChangePasswordController {
         }
     }
 
-
+    @FXML
     private boolean validateInputPassword(String newPassword, String confirmPassword) {
         boolean hasError = false;
         if(newPassword.isEmpty()) {
@@ -110,6 +119,7 @@ public class ChangePasswordController {
         return !hasError;
     }
 
+    @FXML
     private void clearAllErrorLabels() {
         lblErrorUsername.setText("");
         lblErrorOTP.setText("");
@@ -117,9 +127,18 @@ public class ChangePasswordController {
         lblErrorConfirmPassword.setText("");
     }
 
+    @FXML
     private void showPasswordFields() {
         switchPasswordButton.setVisible(true);
         vBoxPassword.setVisible(true);
         vBoxPassword.setManaged(true);
+    }
+
+    @FXML
+    private void hideSendingCodeButton() {
+        sendingCodeButton.setDisable(true);
+        PauseTransition pause = new PauseTransition(Duration.seconds(20));
+        pause.setOnFinished(events -> sendingCodeButton.setDisable(false));
+        pause.play();
     }
 }

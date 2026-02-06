@@ -24,6 +24,7 @@ import org.example.service.RegisterService;
 import org.example.utils.EmailUtil;
 import org.example.utils.PasswordUtil;
 import org.example.utils.SceneUtil;
+import org.example.utils.UsernameUtil;
 
 public class RegisterController {
     @FXML private TextField fullNameTextField;
@@ -75,6 +76,10 @@ public class RegisterController {
         }
         if(username.isEmpty()) {
             lblErrorUsername.setText(Common.NOT_NULL_USERNAME);
+            hasError = true;
+        }
+        else if(!UsernameUtil.checkRegex(username)) {
+            lblErrorUsername.setText(ErrorMessage.INVALID_USERNAME);
             hasError = true;
         }
         if(password.isEmpty()) {

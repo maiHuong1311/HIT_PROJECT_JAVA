@@ -14,9 +14,9 @@
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="489.0" fitWidth="277.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="480.0" fitWidth="254.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/Gemini_Generated_Image_iz44q0iz44q0iz44.png" />
+                  <Image url="@../image/Screenshot%202026-02-04%20010425.png" />
                </image>
             </ImageView>
          </children>
