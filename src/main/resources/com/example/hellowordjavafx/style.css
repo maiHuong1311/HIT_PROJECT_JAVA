@@ -1,0 +1,127 @@
+.root {
+    -fx-background-color: #EAF4FF;
+}
+#contentBox {
+    -fx-background-color: Blue;
+}
+.body-background{
+    -fx-background-color: #f5efdf;
+}
+.bar_background{
+    -fx-background-color: #FF8C42;
+}
+.M_background{
+    -fx-background-color: #e6af55;
+    -fx-background-radius: 50;
+}
+.search_background{
+    -fx-background-color: #787A8F;
+    -fx-background-radius: 50;
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.avata_background{
+    -fx-background-radius: 100;
+     -fx-background-color: #e6af55;
+}
+.Notification_background{
+     -fx-background-radius: 100;
+     -fx-background-color: white;
+}
+.footer{
+      -fx-background-radius: 20 20 0 0;
+       -fx-background-color: #FF8C42;
+}
+.header{
+      -fx-background-radius: 0 0 20 20;
+       -fx-background-color: #FF8C42;
+}
+.child_box{
+      -fx-background-radius: 20;
+       -fx-background-color: white;
+}
+.child_box:hover{
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+}
+.child_boxx{
+      -fx-background-radius: 20;
+       -fx-background-color: white;
+}
+.child_boxx:hover{
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+}
+.child_box_tb{
+      -fx-background-radius: 20;
+       -fx-background-color: white;
+}
+.child_box_tb:hover{
+    -fx-scale-x: 1.04;
+    -fx-scale-y: 1.04;
+}
+.child_menu_background{
+    -fx-background-color: #e6af55;
+     -fx-background-radius: 50;
+}
+.child_menu_background:hover {
+    -fx-background-color: white;
+     -fx-scale-x: 1.08;
+        -fx-scale-y: 1.08;
+}
+.child_menu_background{
+    -fx-background-color: #e6af55;
+     -fx-background-radius: 50;
+}
+.child_courses{
+     -fx-background-color: #f5efdf;
+      -fx-background-radius: 15;
+}
+.succes_chile_box{
+    -fx-background-color: rgba(200, 235, 200, 0.5);
+    -fx-background-radius: 6;
+    -fx-background-color:  #F2FBF2;
+}
+.supportAI_text{
+    -fx-background-color:  white;
+    -fx-background-radius: 6;
+}
+.supportAI_fort{
+     -fx-background-color:  white;
+}
+.supportAI_box{
+     -fx-background-color: #E0E0E0;
+    -fx-background-radius: 100;
+}
+.addsubject_search{
+     -fx-background-color: white;
+     -fx-background-radius: 15;
+}
+.addsubject_text{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.notification{
+    -fx-background-color:  white;
+    -fx-background-radius: 15;
+}
+.addsubject_bg{
+    -fx-background-color: white;
+    -fx-background-radius: 50;
+}
+.history_bg{
+     -fx-background-color: white;
+     -fx-background-radius: 50;
+}
+.home_bg{
+    -fx-background-color: white;
+    -fx-background-radius: 50;
+}
+.mysources_bg{
+    -fx-background-color: white;
+    -fx-background-radius: 50;
+}
+.scrollPane{
+    -fx-background: #f5efdf;
+    -fx-background-color: transparent;
+}
