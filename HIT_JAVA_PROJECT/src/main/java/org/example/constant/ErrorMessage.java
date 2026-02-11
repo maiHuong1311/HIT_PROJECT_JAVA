@@ -17,4 +17,5 @@ public class ErrorMessage {
     public static final String CHANGE_PASSWORD_FAILED = "Đổi mật khẩu thất bại";
     public static final String OTP_IS_NULL = "Nhấn gửi mã";
     public static final String INVALID_USERNAME = "Username cần từ 8 kí tự trở lên";
+    public static final String SEARCH_FAILED = "Không có môn muốn tìm";
 }

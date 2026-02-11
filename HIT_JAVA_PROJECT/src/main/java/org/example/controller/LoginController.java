@@ -48,7 +48,7 @@ public class LoginController {
         if (validateInput(username, password, selectedRole)) {
             try {
                 loginService.loginService(username, password, selectedRole);
-
+                SceneUtil.changeScene(event, "/view/home.fxml", "Trang chủ");
             } catch (AuthenticationException e) {
                 lblErrorMessage.setText(e.getMessage());
             }

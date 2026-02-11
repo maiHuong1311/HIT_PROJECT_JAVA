@@ -13,4 +13,5 @@ public class Common {
     public static final String SUCCESS_TITLE = "Thành công";
     public static final String SUCCESS_HEADER = "Chúc mừng";
     public static final String NOT_NULL_OTP = "Mã OTP không được để trống";
+    public static final String NOT_NULL_SUBJECT_NAME = "Nhập tên môn đi, năn nỉ á!";
 }
