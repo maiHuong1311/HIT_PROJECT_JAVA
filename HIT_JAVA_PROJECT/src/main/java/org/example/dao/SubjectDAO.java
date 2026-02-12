@@ -33,4 +33,26 @@ public class SubjectDAO {
         }
         return list;
     }
+
+    public List<Subject> randomSunject(int limit) {
+        List<Subject> result = new ArrayList<>();
+        String sql = "SELECT subjectId, name, totalQuestion, totalExercise FROM subject ORDER BY RAND() LIMIT ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+             ps.setInt(1, limit);
+             ResultSet rs = ps.executeQuery();
+             while(rs.next()) {
+                 Subject subject = new Subject(
+                         rs.getInt("subjectId"),
+                         rs.getString("name"),
+                         rs.getInt("totalQuestion"),
+                         rs.getInt("totalExercise")
+                 );
+                 result.add(subject);
+             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
