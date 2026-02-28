@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.MCQReviewController">
+   <top>
+      <AnchorPane prefHeight="43.0" prefWidth="600.0" style="-fx-background-color: #f5efdf;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backButton" layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleSwitchToQuestionType" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #f5efdf; -fx-padding: 0;">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/back.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+         </children></AnchorPane>
+   </top>
+   <center>
+      <ScrollPane fx:id="reviewScrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background: #f5efdf; -fx-background-color: transparent;" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="reviewVBox" alignment="CENTER" prefHeight="508.0" prefWidth="498.0" spacing="20.0">
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

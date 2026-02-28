@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #f5efdf;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.SearchSubjectController">
+    <top>
+        <AnchorPane prefHeight="41.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="backButton" layoutX="7.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleSwitchToHome" prefHeight="34.0" prefWidth="35.0" style="-fx-background-color: #f5efdf; -fx-padding: 0;">
+                    <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/back.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox fx:id="searchErrorVBox" layoutX="74.0" layoutY="69.0" prefHeight="267.0" prefWidth="255.0">
+                    <children>
+                        <ImageView fitHeight="205.0" fitWidth="255.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/sadCat.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="lblSearchError" alignment="CENTER" opacity="0.51" prefHeight="25.0" prefWidth="255.0" textFill="#a37b1d">
+                            <font>
+                                <Font name="Arial Bold" size="12.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <ScrollPane fx:id="searchScrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="460.0" prefWidth="400.0" style="-fx-background-color: transparent;; -fx-background: #f5efdf;">
+                    <content>
+                        <VBox fx:id="resultVBox" prefHeight="460.0" prefWidth="398.0" spacing="20.0">
+                            <padding>
+                                <Insets bottom="20.0" left="15.0" right="60.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children></AnchorPane>
+    </center>
+</BorderPane>
