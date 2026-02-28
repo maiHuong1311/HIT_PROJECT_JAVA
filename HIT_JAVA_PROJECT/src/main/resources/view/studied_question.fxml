@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="450.0" style="-fx-background-radius: 5;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.StudiedQuestionItemController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="420.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="32.0" layoutY="25.0" prefHeight="99.0" prefWidth="385.0" style="-fx-background-color: #a37b1d; -fx-background-radius: 5; -fx-padding: 10;" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="136.0" text="Đáp án bạn chọn" textFill="#e6af55">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="userAnswerLabel" alignment="CENTER" layoutX="32.0" layoutY="159.0" prefHeight="99.0" prefWidth="385.0" style="-fx-background-color: #a37b1d; -fx-background-radius: 5; -fx-padding: 10;" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="270.0" text="Đáp án đúng" textFill="#e6af55">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="correctAnswerLabel" alignment="CENTER" layoutX="32.0" layoutY="292.0" prefHeight="99.0" prefWidth="385.0" style="-fx-background-color: #a37b1d; -fx-background-radius: 5; -fx-padding: 10;" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
