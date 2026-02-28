@@ -18,4 +18,6 @@ public class ErrorMessage {
     public static final String OTP_IS_NULL = "Nhấn gửi mã";
     public static final String INVALID_USERNAME = "Username cần từ 8 kí tự trở lên";
     public static final String SEARCH_FAILED = "Không có môn muốn tìm";
+    public static final String INVALID_TOTAL_QUESTION = "Lỗi số lượng câu hỏi";
+    public static final String INVALID_NUMBER_FORMART = "Vui lòng nhập số lượng bằng số";
 }

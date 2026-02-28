@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="500.0" style="-fx-background-color: #f5efdf;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AddQuestionController">
+   <top>
+      <AnchorPane prefHeight="179.0" prefWidth="500.0" style="-fx-background-color: #f5efdf;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="7.0" layoutY="41.0" text="Tên môn:" textFill="#a37b1d">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="80.0" prefHeight="16.0" prefWidth="114.0" text="Số lượng câu hỏi:" textFill="#a37b1d">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="addButton" layoutX="210.0" layoutY="141.0" mnemonicParsing="false" onAction="#saveUserQuestion" prefHeight="22.0" prefWidth="53.0" style="-fx-background-color: #e6af55;" text="Thêm" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Button>
+            <TextField fx:id="subjectNameTextField" layoutX="74.0" layoutY="37.0" prefHeight="25.0" prefWidth="411.0" style="-fx-background-color: white;" />
+            <TextField fx:id="totalQuestionTextField" layoutX="129.0" layoutY="75.0" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: white;" />
+            <Label fx:id="lblNameError" layoutX="81.0" layoutY="41.0" opacity="0.82" prefHeight="17.0" prefWidth="242.0" textFill="#918c8c">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalQuestionError" layoutX="135.0" layoutY="79.0" opacity="0.82" prefHeight="17.0" prefWidth="109.0" textFill="#918c8c">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalQuestionError1" alignment="CENTER" layoutX="70.0" layoutY="111.0" opacity="0.82" prefHeight="17.0" prefWidth="365.0" textFill="#a37b1d">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </top>
+   <center>
+      <ScrollPane fx:id="addScrollPane" hbarPolicy="NEVER" prefHeight="470.0" prefWidth="500.0" style="-fx-background-color: transparent; -fx-background: #f5efdf;" visible="false" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="addListVBox" prefHeight="504.0" prefWidth="498.0" spacing="20.0" style="-fx-padding: 20;" />
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="38.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="saveButton" layoutX="215.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleSubmit" style="-fx-background-color: #e6af55;" text="Lưu" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

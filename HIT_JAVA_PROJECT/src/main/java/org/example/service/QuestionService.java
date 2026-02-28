@@ -4,6 +4,7 @@ import org.example.dao.QuestionDAO;
 import org.example.model.Exercise;
 import org.example.model.MultipleChoiceQuestion;
 import org.example.model.Subject;
+import org.example.model.UserQuestion;
 import org.example.model.dto.HistoryQuestion;
 
 import java.util.List;
@@ -53,5 +54,13 @@ public class QuestionService {
 
     public List<HistoryQuestion> getStudiedQuestionList(int userId, int lessonId) {
         return questionDao.getStudiedQuestionList(userId, lessonId);
+    }
+
+    public boolean insertUserQuestion(UserQuestion uq) {
+        return questionDao.insertUserQuestion(uq);
+    }
+
+    public List<UserQuestion> getUserQuestionsByUserId(int userId) {
+        return questionDao.getUserQuestionsByUserId(userId);
     }
 }
