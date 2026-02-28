@@ -5,15 +5,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.constant.Common;
 import javafx.scene.Node;
 import org.example.model.Subject;
+import org.example.service.LoginService;
 import org.example.service.RandomSubjectDisplayService;
 import org.example.service.SearchSubjectService;
 import org.example.utils.SceneUtil;
@@ -22,11 +21,18 @@ import java.io.IOException;
 import java.util.List;
 
 public class HomeController {
+    @FXML private Button optionButton;
     @FXML private TextField inputBarTextField;
     @FXML private Button searchButton;
     @FXML private Label lblNameError;
     @FXML private ScrollPane scrollPane;
     @FXML private VBox randomSubjectVBox;
+    @FXML private Label layerLabel;
+    @FXML private Label optionLabel;
+    @FXML private ImageView historyImage;
+    @FXML private ImageView addImage;
+    @FXML private Hyperlink historyHyperlink;
+    @FXML private Hyperlink addHyperlink;
     private SearchSubjectService searchSubjectService = new SearchSubjectService();
     private RandomSubjectDisplayService random = new RandomSubjectDisplayService();
 
@@ -80,4 +86,35 @@ public class HomeController {
         return !hasError;
     }
 
+    @FXML public void handleToClickOptionButton(ActionEvent event) {
+        if(!layerLabel.isVisible()) {
+            layerLabel.setVisible(true);
+            optionLabel.setVisible(true);
+            historyImage.setVisible(true);
+            addImage.setVisible(true);
+            historyHyperlink.setVisible(true);
+            addHyperlink.setVisible(true);
+        } else {
+            layerLabel.setVisible(false);
+            optionLabel.setVisible(false);
+            historyImage.setVisible(false);
+            addImage.setVisible(false);
+            historyHyperlink.setVisible(false);
+            addHyperlink.setVisible(false);
+        }
+    }
+
+    @FXML public void showHistory(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/history.fxml"));
+            Parent root = loader.load();
+            HistoryController controller = loader.getController();
+            controller.loadStudiedSubjects(LoginService.currentUser.getId());
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
