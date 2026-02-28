@@ -1,17 +1,23 @@
 package org.example.model;
 
-public class Subject {
+public class Lesson {
+    private int lessonId;
     private int subjectId;
-    private String name;
+    private String title;
     private int totalQuestion;
     private int totalExercise;
 
-    public Subject() {}
-    public Subject(int subjectId, String name, int totalQuestion, int totalExercise) {
+    public Lesson() {}
+    public Lesson(int lessonId, int subjectId, String title, int totalQuestion, int totalExercise) {
+        this.lessonId = lessonId;
         this.subjectId = subjectId;
-        this.name = name;
+        this.title = title;
         this.totalQuestion = totalQuestion;
         this.totalExercise = totalExercise;
+    }
+
+    public int getLessonId() {
+        return lessonId;
     }
 
     public int getSubjectId() {
@@ -21,11 +27,11 @@ public class Subject {
         this.subjectId = subjectId;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getTotalQuestion() {
