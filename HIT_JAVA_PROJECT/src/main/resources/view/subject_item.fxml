@@ -38,7 +38,7 @@
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="reviewButton" layoutX="309.0" layoutY="84.0" mnemonicParsing="false" onAction="#review" prefHeight="25.0" prefWidth="40.0" style="-fx-background-color: #e6af55;" text="Ôn" textFill="WHITE">
+      <Button fx:id="reviewButton" layoutX="301.0" layoutY="84.0" mnemonicParsing="false" onAction="#show" prefHeight="25.0" prefWidth="48.0" style="-fx-background-color: #e6af55;" text="Xem" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
