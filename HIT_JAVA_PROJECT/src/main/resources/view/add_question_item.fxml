@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="450.0" style="-fx-background-radius: 5;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AddQuestionItemController">
+   <top>
+      <AnchorPane prefHeight="630.0" prefWidth="446.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="630.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+            <Label layoutX="32.0" layoutY="131.0" text="Đáp án sai" textFill="#e6af55">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="491.0" text="Đáp án đúng" textFill="#e6af55">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="titleTextField" alignment="CENTER" layoutX="32.0" layoutY="20.0" prefHeight="100.0" prefWidth="385.0" style="-fx-background-radius: 5; -fx-background-color: #a37b1d; -fx-padding: 10;">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="optionATextField" alignment="CENTER" layoutX="32.0" layoutY="153.0" prefHeight="100.0" prefWidth="385.0" style="-fx-background-radius: 5; -fx-background-color: #a37b1d; -fx-padding: 10;">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="optionBTextField" alignment="CENTER" layoutX="32.0" layoutY="265.0" prefHeight="100.0" prefWidth="385.0" style="-fx-background-radius: 5; -fx-background-color: #a37b1d; -fx-padding: 10;">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="optionCTextField" alignment="CENTER" layoutX="32.0" layoutY="378.0" prefHeight="100.0" prefWidth="385.0" style="-fx-background-radius: 5; -fx-background-color: #a37b1d; -fx-padding: 10;">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="correctAnswerTextField" alignment="CENTER" layoutX="32.0" layoutY="516.0" prefHeight="100.0" prefWidth="385.0" style="-fx-background-radius: 5; -fx-background-color: #a37b1d; -fx-padding: 10;">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

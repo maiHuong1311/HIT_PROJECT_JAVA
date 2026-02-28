@@ -194,7 +194,7 @@ public class QuestionDAO {
 
     public List<HistoryQuestion> getStudiedQuestionList(int userId, int lessonId) {
         List<HistoryQuestion> studiedList = new ArrayList<>();
-        String sql = "SELECT q.title, uqs.userAnswer, uqs.correctAnswer FROM question q JOIN user_question_status uqs ON q.questionId = uqs.questionId WHERE uqs.id = ? AND uqs.lessonId = ? AND uqs.isComplete = 1";
+        String sql = "SELECT q.title, uqs.userAnswer, uqs.correctAnswer FROM question q JOIN user_question_status uqs ON q.questionId = uqs.questionId WHERE uqs.id = ? AND uqs.lessonId = ? AND uqs.isComplete = 1 AND q.questionType = 'MULTIPLECHOICE'";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, userId);
@@ -211,5 +211,49 @@ public class QuestionDAO {
             e.printStackTrace();
         }
         return studiedList;
+    }
+
+    public boolean insertUserQuestion(UserQuestion uq) {
+        String sql = "INSERT INTO user_question (id, subjectName, title, optionA, optionB, optionC, correctAnswer) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, uq.getId());
+            ps.setString(2, uq.getSubjectName());
+            ps.setString(3, uq.getTitle());
+            ps.setString(4, uq.getOptionA());
+            ps.setString(5, uq.getOptionB());
+            ps.setString(6, uq.getOptionC());
+            ps.setString(7, uq.getCorrectAnswer());
+            int result = ps.executeUpdate();
+            return result > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public List<UserQuestion> getUserQuestionsByUserId(int userId) {
+        List<UserQuestion> list = new ArrayList<>();
+        String sql = "SELECT * FROM user_question WHERE id = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                UserQuestion uq = new UserQuestion();
+                uq.setUserQuestionId(rs.getInt("userQuestionId"));
+                uq.setId(rs.getInt("id")); // Đây là userId
+                uq.setSubjectName(rs.getString("subjectName"));
+                uq.setTitle(rs.getString("title"));
+                uq.setOptionA(rs.getString("optionA"));
+                uq.setOptionB(rs.getString("optionB"));
+                uq.setOptionC(rs.getString("optionC"));
+                uq.setCorrectAnswer(rs.getString("correctAnswer"));
+                list.add(uq);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

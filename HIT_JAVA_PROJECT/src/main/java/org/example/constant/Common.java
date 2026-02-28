@@ -19,8 +19,8 @@ public class Common {
     public static final String NOT_COMPLETE_QUESTION = "Chưa hoàn thành";
     public static final String NOT_HAVE_MCQ = "Không có câu hỏi trắc nghiệm";
     public static final String NOT_HAVE_EXERCISE = "Không có câu tự luận";
-    public static final String SET_STYLE_CORRECT_ANSWER = "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;";
-    public static final String SET_STYLE_INCORRECT_ANSWER = "-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;";
+    public static final String SET_STYLE_CORRECT_ANSWER = "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5; -fx-opacity: 1;";
+    public static final String SET_STYLE_INCORRECT_ANSWER = "-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5; -fx-opacity: 1;";
     public static final String CONFIRM_SET_TITLE = "Xác nhận tiến độ";
     public static final String CONFIRM_SET_HEADER = "Bạn đã từng ôn bài này. ";
     public static final String CONFIRM_SET_CONTENT = "Bạn muốn làm từ đầu hay tiếp tục";
@@ -30,4 +30,6 @@ public class Common {
     public static final String USER_ANSWER = "Người dùng đã xem đáp án";
     public static final String NULL_HISTORY = "Bạn chưa ôn môn nào";
     public static final String NULL_QUESTION = "Bạn chưa ôn bải này";
+    public static final String NOT_NULL_SUBJECT_NAME_TEXT_FIELD = "Nhập tên đi mà";
+    public static final String NOT_NULL_TOTAL_QUESTION = "Nhập đi";
 }

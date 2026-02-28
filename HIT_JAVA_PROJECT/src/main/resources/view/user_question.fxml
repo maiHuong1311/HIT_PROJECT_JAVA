@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.UserQuestionController">
+   <children>
+      <Label fx:id="titleLabel" alignment="CENTER" prefHeight="99.0" prefWidth="385.0" style="-fx-background-radius: 5; -fx-background-color: #a37b1d; -fx-padding: 10;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Label>
+      <VBox fx:id="answerVBox" alignment="CENTER" prefHeight="391.0" prefWidth="450.0" spacing="10.0" style="-fx-background-color: white;">
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </VBox>
+   </children>
+</VBox>

@@ -1,14 +1,17 @@
 package org.example.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import org.example.constant.Common;
 import org.example.model.dto.HistoryQuestion;
 import org.example.service.QuestionService;
+import org.example.utils.SceneUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +22,7 @@ public class StudiedQuestionListController {
     @FXML ScrollPane studiedListScrollPane;
     @FXML VBox studiedListVBox;
     @FXML Label lblNullQuestion;
+    @FXML Button backButton;
 
     @FXML public void showStudiedList(int userId, int lessonId) {
         List<HistoryQuestion> historyList = questionService.getStudiedQuestionList(userId, lessonId);
@@ -39,5 +43,9 @@ public class StudiedQuestionListController {
                 }
             }
         }
+    }
+
+    @FXML public void handleSwitchToHome(ActionEvent event) {
+        SceneUtil.changeScene(event, "/view/home.fxml", "Trang chủ");
     }
 }

@@ -117,4 +117,19 @@ public class HomeController {
             e.printStackTrace();
         }
     }
+
+
+    @FXML public void addQuestion(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/add_question_history.fxml"));
+            Parent root = loader.load();
+            AddQuestionHistoryController controller = loader.getController();
+            controller.showUserQuestion();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
